@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Sidebar Mobile Overlay */}
             {isSidebarOpen && (
-                <div 
+                <div
                     className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300"
                     onClick={() => setIsSidebarOpen(false)}
                 />
@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex-1 flex flex-col min-w-0 relative h-full">
                 {/* Mobile Header */}
                 <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-white border-b border-slate-200">
-                    <button 
+                    <button
                         onClick={() => setIsSidebarOpen(true)}
                         className="p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-xl transition-colors"
                     >
@@ -52,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div className="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center">
                             <span className="text-white font-black text-xs">S</span>
                         </div>
-                        <span className="font-black text-slate-900">ShopOS</span>
+                        <span className="font-black text-slate-900">The Waffle Sopt</span>
                     </div>
                     <div className="w-10"></div> {/* Spacer for symmetry */}
                 </header>

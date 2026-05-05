@@ -63,9 +63,10 @@ const Login = () => {
                     >
                         <div className="w-24 h-24 bg-orange-500 rounded-3xl flex items-center justify-center shadow-2xl shadow-indigo-500/20 mb-6 mx-auto">
                             <Store className="h-12 w-12 text-white" />
+                            <img src="https://res.cloudinary.com/dxhrg5kgu/image/upload/v1777963755/Gemini_Generated_Image_tzpkvdtzpkvdtzpk_lvedfd.png" alt="icon" loading="lazy" />
                         </div>
                         <h2 className="text-5xl font-black tracking-tight mb-4 bg-clip-text text-transparent bg-orange-500">
-                            ShopOS
+                            The Waffle Sopt
                         </h2>
                         <p className="text-xl text-gray-700 max-w-sm mx-auto font-medium">
                             Modern Management for Waffle & Cafe Businesses
@@ -88,7 +89,7 @@ const Login = () => {
                             <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg mx-auto mb-4">
                                 <Store className="h-8 w-8 text-white" />
                             </div>
-                            <h1 className="text-3xl font-bold">ShopOS</h1>
+                            <h1 className="text-3xl font-bold">The Waffle Sopt</h1>
                         </div>
 
                         <div className="mb-8">

@@ -409,7 +409,7 @@ const Billing = () => {
 
                             {/* Print Content */}
                             <div className="text-center space-y-1 mb-8">
-                                <h2 className="text-2xl font-black tracking-tighter">ShopOS</h2>
+                                <h2 className="text-2xl font-black tracking-tighter">The Waffle Sopt</h2>
                                 <p className="text-[10px] font-bold uppercase">{user?.shopName}</p>
                                 <div className="border-b border-dashed border-black pt-4" />
                             </div>

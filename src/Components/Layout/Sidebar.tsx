@@ -74,7 +74,9 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsC
                 <div className={`p-6 ${isCollapsed ? 'px-2' : ''} w-full`}>
                     <div className={`flex items-center gap-3 mb-8 ${isCollapsed ? 'justify-center' : ''}`}>
                         <div className={`flex-shrink-0 w-10 h-10 bg-gradient-to-br ${accentGradient} rounded-xl flex items-center justify-center shadow-lg shadow-${accentColor}/20`}>
-                            <Store className="h-6 w-6 text-white" />
+                            {/* <Store className="h-6 w-6 text-white" /> */}
+                            <img src="https://res.cloudinary.com/dxhrg5kgu/image/upload/v1777963755/Gemini_Generated_Image_tzpkvdtzpkvdtzpk_lvedfd.png" alt="icon" loading="lazy" />
+
                         </div>
                         {!isCollapsed && (
                             <motion.div
@@ -82,7 +84,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsC
                                 animate={{ opacity: 1, x: 0 }}
                                 className="overflow-hidden whitespace-nowrap"
                             >
-                                <h1 className="text-xl font-black tracking-tight text-slate-900">ShopOS</h1>
+                                <h1 className="text-xl font-black tracking-tight text-slate-900">The Waffle Sopt</h1>
                                 <p className={`text-[10px] font-bold uppercase tracking-widest text-${accentColor}`}>
                                     {user?.shopName || "Admin Portal"}
                                 </p>
