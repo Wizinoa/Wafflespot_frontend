@@ -39,9 +39,9 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsC
 
     const menuItems = [
         { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-        { path: "/billing", label: "Billing", icon: ShoppingCart },
+        { path: "/billing", label: "Billing", icon: ShoppingCart, disabled:true },
         { path: "/stock-update", label: "Stock Update", icon: Package },
-        { path: "/bills-history", label: "Bills History", icon: FileText },
+        { path: "/bills-history", label: "Bills History", icon: FileText, disabled:true },
         ...(isAdmin
             ? [
                 { path: "/admin/stock-master", label: "Stock Master", icon: Boxes },
@@ -112,29 +112,56 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsC
                             const Icon = item.icon;
                             const isActive = location.pathname === item.path;
                             return (
-                                <Link
-                                    key={item.path}
-                                    to={item.path}
-                                    className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-200 group relative ${isCollapsed ? 'justify-center' : 'px-4'} ${isActive
-                                        ? `bg-gradient-to-r ${accentGradient} text-white shadow-md shadow-${accentColor}/20`
-                                        : "text-slate-500 hover:bg-slate-50 hover:text-slate-900 font-medium"
-                                        }`}
-                                    title={isCollapsed ? item.label : ""}
-                                >
-                                    <Icon size={20} className={isActive ? "text-white" : "group-hover:text-slate-900"} />
-                                    {!isCollapsed && (
-                                        <motion.span
-                                            initial={{ opacity: 0, x: -5 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            className="text-sm font-medium whitespace-nowrap"
-                                        >
-                                            {item.label}
-                                        </motion.span>
-                                    )}
-                                    {isCollapsed && isActive && (
-                                        <div className={`absolute left-0 w-1 h-6 bg-white rounded-r-full`} />
-                                    )}
-                                </Link>
+                               <Link
+  key={item.path}
+  to={item.disabled ? "#" : item.path}
+  onClick={(e) => {
+    if (item.disabled) {
+      e.preventDefault();
+    }
+  }}
+  className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-200 group relative ${
+    isCollapsed ? "justify-center" : "px-4"
+  } ${
+    item.disabled
+      ? "opacity-50 cursor-not-allowed text-slate-400 bg-slate-100"
+      : isActive
+      ? `bg-gradient-to-r ${accentGradient} text-white shadow-md`
+      : "text-slate-500 hover:bg-slate-50 hover:text-slate-900 cursor-pointer font-medium"
+  }`}
+  title={isCollapsed ? item.label : ""}
+>
+  <Icon
+    size={20}
+    className={
+      item.disabled
+        ? "text-slate-400"
+        : isActive
+        ? "text-white"
+        : "group-hover:text-slate-900"
+    }
+  />
+
+  {!isCollapsed && (
+    <motion.span
+      initial={{ opacity: 0, x: -5 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="text-sm font-medium whitespace-nowrap"
+    >
+      {item.label}
+    </motion.span>
+  )}
+
+  {item.disabled && !isCollapsed && (
+    <span className="ml-auto text-[10px] px-2 py-1 rounded bg-slate-200 text-slate-500">
+      Soon
+    </span>
+  )}
+
+  {isCollapsed && isActive && !item.disabled && (
+    <div className="absolute left-0 w-1 h-6 bg-white rounded-r-full" />
+  )}
+</Link>
                             );
                         })}
                     </nav>

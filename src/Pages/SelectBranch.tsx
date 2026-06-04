@@ -67,7 +67,7 @@ const SelectBranch = () => {
                     </div>
 
                     <div className="space-y-4">
-                        {user.branches.map((branch: string, index: number) => (
+                        {/* {user.branches.map((branch: string, index: number) => (
                             <motion.button
                                 key={index}
                                 whileHover={{ scale: 1.02 }}
@@ -83,7 +83,56 @@ const SelectBranch = () => {
                                     →
                                 </div>
                             </motion.button>
-                        ))}
+                        ))} */}
+
+                        {user.branches.map((branch: string, index: number) => {
+  const isDisabled = index === 1;
+
+  return (
+    <motion.button
+      key={index}
+      whileHover={!isDisabled ? { scale: 1.02 } : {}}
+      whileTap={!isDisabled ? { scale: 0.98 } : {}}
+      onClick={() => !isDisabled && handleSelectBranch(branch)}
+      disabled={isDisabled}
+      className={`w-full flex items-center justify-between p-4 border rounded-xl transition-all font-medium shadow-sm
+        ${
+          isDisabled
+            ? "border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed"
+            : "border-gray-200 hover:border-indigo-500 hover:bg-indigo-50 text-gray-700 hover:text-indigo-700 group"
+        }
+      `}
+    >
+      <div className="flex items-center gap-3">
+        <MapPin
+          className={
+            isDisabled
+              ? "text-gray-300"
+              : "text-gray-400 group-hover:text-indigo-500"
+          }
+          size={20}
+        />
+        <span>{branch}</span>
+
+        {isDisabled && (
+          <span className="text-xs bg-gray-200 px-2 py-1 rounded">
+            Soon
+          </span>
+        )}
+      </div>
+
+      <div
+        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+          isDisabled
+            ? "bg-gray-200 text-gray-400"
+            : "bg-gray-100 group-hover:bg-indigo-600 group-hover:text-white"
+        }`}
+      >
+        →
+      </div>
+    </motion.button>
+  );
+})}
                     </div>
                 </motion.div>
             </div>
